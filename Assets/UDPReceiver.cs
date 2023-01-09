@@ -25,7 +25,7 @@ public class UDPReceiver : MonoBehaviour
         byte[] msg = receiver.Receive(ref ep);
 
         // MemoryMarshalでbyte[]をfloat[]に
-        Span<float> converted = MemoryMarshal.Cast<byte, float>(msg).ToArray();
+        Span<float> converted = MemoryMarshal.Cast<byte, float>(msg);
 
         force.x = converted[0];
         force.z = converted[1];
